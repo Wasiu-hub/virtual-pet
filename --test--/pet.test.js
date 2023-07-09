@@ -98,3 +98,76 @@ describe("feed", () => {
     expect(pet.hunger).toEqual(0);
   });
 });
+
+// describe("checkUp", () => {
+//   it("checks if fitness is 3 or less", () => {
+//     const pet = new Pet("Fido");
+//     pet.fitness = 3;
+//     pet.checkUp();
+//     expect(pet.checkUp()).toEqual("I need a walk'");
+//   });
+// });
+
+describe("checkUp", () => {
+  it("returns 'I need a walk' if pet fitness is 3 or less", () => {
+    let pet = new Pet();
+    pet.fitness = 3;
+    expect(pet.checkUp()).toEqual("I need a walk");
+  });
+});
+
+describe("checkUp", () => {
+  it("returns 'I am hungry if hunger is 5 or more'", () => {
+    pet = new Pet();
+    pet.hunger = 5;
+    expect(pet.checkUp()).toEqual("I am hungry");
+  });
+});
+
+describe("checkUp", () => {
+  it("returns 'I am hungry AND I need a walk' if fitness is 3 or less and hunger is 5 or more ", () => {
+    pet = new Pet();
+    pet.fitness = 2;
+    pet.hunger = 6;
+    expect(pet.checkUp()).toEqual("I am hungry AND I need a walk");
+  });
+});
+
+describe("checkUp", () => {
+  it("returns 'I feel great!' if fitness is greater than 3 and hunger is less than 4", () => {
+    pet = new Pet();
+    pet.fitness = 4;
+    pet.hunger = 3;
+    expect(pet.checkUp()).toEqual("I feel great!");
+  });
+});
+
+describe("constructor", () => {
+  it("returns true if the pet is alive", () => {
+    const pet = new Pet("Fido");
+    this.age = 29;
+    this.hunger = 9;
+    this.fitness = 1;
+    expect(pet.isAlive).toBe(true);
+  });
+});
+
+describe("constructor", () => {
+  it("returns false if the pet is not alive", () => {
+    const pet = new Pet("Fido");
+    this.age = 30;
+    this.hunger = 10;
+    this.fitness = 0;
+    expect(!pet.isAlive).toBe(false);
+  });
+});
+
+describe("feed", () => {
+  it("throws an error if the pet is not alive", () => {
+    const pet = new Pet("Fido");
+
+    pet.age = 30;
+
+    expect(() => pet.feed()).toThrow("Your pet is no longer alive :(");
+  });
+});
