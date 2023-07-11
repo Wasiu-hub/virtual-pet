@@ -171,3 +171,23 @@ describe("feed", () => {
     expect(() => pet.feed()).toThrow("Your pet is no longer alive :(");
   });
 });
+
+describe("walk", () => {
+  it("throws an error if the pet is not alive", () => {
+    const pet = new Pet("Fido");
+
+    pet.hunger = 10;
+
+    expect(() => pet.walk()).toThrow("Your pet is no longer alive :(");
+  });
+});
+
+describe("growUp", () => {
+  it("throws an error if the pet is not alive", () => {
+    const pet = new Pet("Fido");
+
+    pet.fitness = 0;
+
+    expect(() => pet.growUp()).toThrow("Your pet is no longer alive :(");
+  });
+});
