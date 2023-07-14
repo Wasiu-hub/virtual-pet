@@ -99,15 +99,6 @@ describe("feed", () => {
   });
 });
 
-// describe("checkUp", () => {
-//   it("checks if fitness is 3 or less", () => {
-//     const pet = new Pet("Fido");
-//     pet.fitness = 3;
-//     pet.checkUp();
-//     expect(pet.checkUp()).toEqual("I need a walk'");
-//   });
-// });
-
 describe("checkUp", () => {
   it("returns 'I need a walk' if pet fitness is 3 or less", () => {
     let pet = new Pet();
@@ -189,5 +180,22 @@ describe("growUp", () => {
     pet.fitness = 0;
 
     expect(() => pet.growUp()).toThrow("Your pet is no longer alive :(");
+  });
+});
+
+describe("constructor", () => {
+  it("set the children property as an empty array", () => {
+    const pet = new Pet("Fido");
+
+    expect(pet.children).toEqual([]);
+  });
+});
+
+describe("adoptChild", () => {
+  it("adds child to children of the parent", () => {
+    const parent = new Pet("Dave");
+    const child = new Pet("Amelia");
+    parent.adoptChild(child);
+    expect(parent.children[0].name).toEqual("Amelia");
   });
 });

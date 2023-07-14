@@ -5,6 +5,7 @@ function Pet(name) {
   this.age = 0;
   this.hunger = 0;
   this.fitness = MAXIMUM_FITNESS;
+  this.children = [];
 }
 
 Pet.prototype = {
@@ -61,6 +62,10 @@ Pet.prototype.checkUp = function () {
   } else {
     return "'Your pet is no longer alive :('";
   }
+};
+
+Pet.prototype.adoptChild = function (child) {
+  return this.children.push(child);
 };
 
 module.exports = Pet;
