@@ -73,7 +73,6 @@ describe("walk", () => {
   it("increase fitness by to a maximum of 10", () => {
     const pet = new Pet("Fido");
 
-    // pet.fitness = 4;
     pet.fitness = 8;
     pet.walk();
     expect(pet.fitness).toEqual(10);
@@ -191,11 +190,20 @@ describe("constructor", () => {
   });
 });
 
+// describe("adoptChild", () => {
+//   it("adds child to children of the parent", () => {
+//     const parent = new Pet("Dave");
+//     const child = new Pet("Amelia");
+//     parent.adoptChild(child);
+//     expect(parent.children[0].name).toBe("Amelia");
+//   });
+// });
+
 describe("adoptChild", () => {
-  it("adds child to children of the parent", () => {
-    const parent = new Pet("Dave");
-    const child = new Pet("Amelia");
-    parent.adoptChild(child);
-    expect(parent.children[0].name).toEqual("Amelia");
+  it("adds child object to parent object's children array", () => {
+    const pet = new Pet("Fido");
+    const baby = new Pet("Daisy");
+    pet.adoptChild(baby);
+    expect(pet.children).toEqual([baby]);
   });
 });
