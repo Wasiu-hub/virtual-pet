@@ -190,20 +190,21 @@ describe("constructor", () => {
   });
 });
 
-// describe("adoptChild", () => {
-//   it("adds child to children of the parent", () => {
-//     const parent = new Pet("Dave");
-//     const child = new Pet("Amelia");
-//     parent.adoptChild(child);
-//     expect(parent.children[0].name).toBe("Amelia");
-//   });
-// });
-
 describe("adoptChild", () => {
-  it("adds child object to parent object's children array", () => {
-    const pet = new Pet("Fido");
-    const baby = new Pet("Daisy");
-    pet.adoptChild(baby);
-    expect(pet.children).toEqual([baby]);
+  it("adds a child to children of the parent", () => {
+    const parent = new Pet("Dave");
+    const child = new Pet("Amelia");
+    parent.adoptChild(child);
+    expect(parent.children[0].name).toBe("Amelia");
+  });
+});
+
+describe("haveBaby", () => {
+  it("creates new object of instance of the parent", () => {
+    const parent = new Pet("Fido");
+    const child = new Pet("Amelia");
+    parent.haveBaby("Amelia");
+    expect(new Pet(child)).toBeInstanceOf(Pet);
+    expect(parent.children[0].name).toBe("Amelia");
   });
 });

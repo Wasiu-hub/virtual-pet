@@ -68,4 +68,9 @@ Pet.prototype.adoptChild = function (child) {
   return this.children.push(child);
 };
 
+Pet.prototype.haveBaby = function (childName) {
+  const child = new Pet(childName);
+  return this.children.push(child);
+};
+
 module.exports = Pet;
