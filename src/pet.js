@@ -1,3 +1,6 @@
+/* eslint-disable space-before-function-paren */
+/* eslint-disable quotes */
+/* eslint-disable require-jsdoc */
 const MAXIMUM_FITNESS = 10;
 const FITNESS_INCREASE = 4;
 function Pet(name) {

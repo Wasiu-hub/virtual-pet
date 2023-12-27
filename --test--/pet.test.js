@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable quotes */
 const Pet = require("../src/pet");
 
 describe("constructor", () => {
@@ -128,7 +130,7 @@ describe("feed", () => {
 
 describe("checkUp", () => {
   it("returns 'I need a walk' if pet fitness is 3 or less", () => {
-    let pet = new Pet();
+    const pet = new Pet();
     pet.fitness = 3;
     expect(pet.checkUp()).toEqual("I need a walk");
   });
